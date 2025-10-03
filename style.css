@@ -1,99 +1,171 @@
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+:root {
+    --white: #ffffff;
+    --primary-color: #e6e6e6ab;
+    --text-dark: #232637;
+    --max-width: 1200px;
+    --primary-alt: #938296;
+}
+
+* {
+    padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    box-sizing: border-box;
 }
 
-/* کانتینر اصلی */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-/* باکس لاگین */
-.login-box {
-    background: #fff;
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    width: 350px;
+html {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-size: 12pt;
+    color: var(--white);
     text-align: center;
-    animation: fadeIn 0.6s ease-in-out;
 }
 
-/* عنوان */
-.title {
-    margin: 0;
-    font-size: 26px;
-    font-weight: bold;
-    color: #333;
+body {
+    min-height: 100vh;
+    background: url(img1.jpg) no-repeat center center;
+    background-size: cover;   /* aks ro dorost fit mikone */
+    
+    background-position: right;
+    overflow: hidden;
 }
 
-.subtitle {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 20px;
+.wrapper {
+    background-color: var(--primary-color);
+    height: 90vh;
+    width:50vh ;
+    align-content: center;
+    position: relative;
+    align-self: center;
+    align-content: center;
+    transform: translate(150px, 40px);
+    border-radius: 10%;
 }
 
-/* گروه ورودی‌ها */
-.input-group {
-    margin-bottom: 15px;
+h1 {
+    display: flex;
+    font-size: 3rem;
+    color: rgb(197, 114, 128);
+    transform: translateX(55px);
+    margin-bottom: 180px;
 }
 
-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.form__label {
+    display: grid;
+    gap: 1.5rem;
+    transform: translateY(-90px);
+    list-style: none;
+}
+
+.form__label input{
+    background-color: var(--primary-color);
+    border: 0;
+    height: 25px;
+    border-radius: 10px;
     outline: none;
-    font-size: 15px;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+    color: #222;
+    padding: 8px 14px;
 }
 
-input:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+.form__label input::placeholder {
+  color: rgb(22, 15, 16); /* porange/magentayi ke mikhay */
+  opacity: 1;              /* some browsers reduce opacity by default */
+  font-weight: 500;        /* khorde bold */
+  transform: translateY(0);/* placeholder ro az bala/noghte nagozar */
 }
 
-/* دکمه */
+.form__label input:focus {
+  border-color: #000;                 /* border meshki */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12); /* optional shadow baraye jelohe */
+  background-color: var(--primary-alt); /* ya kam rang tar sho */
+  transform: translateY(-1px);        /* khorde bala biad bad az focus (optional) */
+}
+
+
+.form__label input:hover{
+    background-color: var(--primary-alt);
+    
+}
+
+svg {
+    display: grid;
+    transform: translateY(22px);
+    margin-left: 20px;
+}
+
 button {
-    width: 100%;
-    padding: 12px;
-    background: #4CAF50;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
+    width: 100px;
+    height: 40px;
+    transform: translateX(90px);
+    margin-top: 30px;
+    border-radius: 10px;
+    border: 0;
+    background-color: var(--primary-color);
+    color: rgb(41, 37, 40);
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.1s ease;
 }
 
-button:hover {
-    background: #43a047;
-    transform: scale(1.02);
+button:hover{
+    background-color: var(--primary-alt);
 }
 
-/* پیام خطا */
-.error {
-    color: #e74c3c;
-    font-size: 14px;
-    margin-top: 15px;
+p {
+    color: black;
+    transform: translateY(-20px);
+
 }
 
-/* انیمیشن */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
+p a{
+    text-decoration: none;
+    color: rgb(245, 76, 104);
+}
+
+p a:hover {
+    color: var(--primary-alt);
+}
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll; /* mobile-friendly */
+  }
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.5rem;           /* kutah tar heading */
+        transform: translateX(0);  /* vasat biad */
+        margin-bottom: 60px;
+        text-align: center;        /* vasat chin */
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .form__label input {
+        width: 80%;                /* tool input ta 80% safe */
+        height: 40px;
+        font-size: 1rem;            /* matn bozorgtar baraye touch */
+    }
+
+    .form__label {
+        transform: translateY(-40px);
+        gap: 1rem;
+        justify-items: center;      /* inputs vasat */
+    }
+
+    svg {
+        transform: translateY(0);   /* icon ham vasat shod */
+    }
+
+    button {
+        width: 80%;
+        height: 45px;
+        font-size: 1rem;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .wrapper {
+        width: 20vh;
+        height: 70vh;
+        transform: translate(100px, 100px);
     }
 }
